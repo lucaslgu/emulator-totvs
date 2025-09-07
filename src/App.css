@@ -1,0 +1,316 @@
+.logo.vite:hover {
+  filter: drop-shadow(0 0 2em #747bff);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafb);
+}
+:root {
+  /* Typography */
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  /* Color palette */
+  --bg-main: #121212;
+  --bg-main-alt: #1E1E1E;
+  --surface: #1F2937;
+  --surface-alt: #2C2C2C;
+  --text-primary: #E5E7EB;
+  --text-title: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --color-primary: #22C55E; /* verde confiança */
+  --color-primary-alt: #3B82F6; /* azul clínico */
+  --color-warning: #FACC15; /* amarelo */
+  --color-error: #EF4444;   /* vermelho */
+  --color-secondary: #6366F1; /* roxo */
+  --color-success: #10B981; /* verde sucesso */
+  --color-primary-light: rgba(34, 197, 94, 0.1); /* verde claro para seleção */
+  --border-color: #374151;
+
+  color: var(--text-primary);
+  background-color: var(--bg-main);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* simple utility classes */
+.bg-surface {
+  background-color: var(--surface);
+}
+.text-title {
+  color: var(--text-title);
+}
+.text-subtitle {
+  color: var(--text-title);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.button-primary {
+  background-color: var(--color-primary);
+  color: #000;
+}
+.button-secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  font-size: 0.9rem;
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #000;
+}
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 90%, #000);
+}
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+.btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--color-secondary) 90%, #000);
+}
+.btn-danger {
+  background-color: var(--color-error);
+  color: #fff;
+}
+.btn-danger:hover {
+  background-color: color-mix(in srgb, var(--color-error) 90%, #000);
+}
+.btn-sm {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+/* Form Elements */
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-title);
+  font-size: 0.9rem;
+}
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--surface-alt);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+.form-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Table */
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.patient-table thead th {
+  padding: 12px 8px;
+  background-color: var(--surface-alt);
+  color: var(--text-title);
+  border-bottom: 1px solid var(--bg-main-alt);
+  text-align: left;
+  font-weight: 600;
+}
+.patient-table tbody td {
+  padding: 12px 8px;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--bg-main-alt);
+  transition: background-color 0.15s ease;
+}
+.patient-table tbody tr:hover td {
+  background-color: var(--surface-alt);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background-color: var(--surface);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* Alert Styles */
+.alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.alert-success {
+  background-color: var(--color-success);
+  color: white;
+}
+.alert-error {
+  background-color: var(--color-error);
+  color: white;
+}
+.alert-info {
+  background-color: var(--color-primary-alt);
+  color: white;
+}
+
+/* Configuration Section */
+.config-section {
+  background-color: var(--surface-alt);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+/* Tab Styles */
+.tabs {
+  display: flex;
+  background-color: var(--surface-alt);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px 16px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-weight: normal;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  background-color: var(--color-primary);
+  color: #000;
+  font-weight: 600;
+}
+
+.tab:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+/* Responsive */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Loading Spinner Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+  
+  .btn {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .patient-table thead th {
+    padding: 8px 6px;
+  }
+  
+  .patient-table tbody td {
+    padding: 8px 6px;
+  }
+
+  .modal-content {
+    padding: 16px;
+    margin: 16px;
+  }
+
+  .config-section {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 13px;
+  }
+  
+  .btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .patient-table {
+    font-size: 0.8rem;
+  }
+
+  .config-section {
+    padding: 12px;
+  }
+}
+
+/* Remove legacy demo styles below */
+.logo,
+.row,
+a,
+input,
+button,
+.container {
+  all: unset;
+}
